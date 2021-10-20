@@ -11,8 +11,6 @@ def main():
     print(ParseDicts.Parse1(wordi, "https://diclist.ru/slovar/ushakova"))
     print("Cловарь Ефремовой:")
     print(ParseDicts.Parse1(wordi, "https://diclist.ru/slovar/efremovoy"))
-    print("Этимология:")
-    print(ParseDicts.Etimology(wordi))
 
 
 if __name__ == '__main__':
