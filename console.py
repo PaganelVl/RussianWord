@@ -2,7 +2,7 @@ from lib import ParseDicts
 
 
 def main():
-    wordi = input("Введите слово информацию о котором вы хотите получить: ")
+    wordi = input("Введите слово информацию о котором вы хотите получить (с маленькой буквы): ")
     print("Cловарь Даля:")
     print(ParseDicts.Parse1(wordi, "https://diclist.ru/slovar/dalya"))
     print("Cловарь Ожегова:")
