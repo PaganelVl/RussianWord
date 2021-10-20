@@ -11,10 +11,6 @@ def main():
     print(ParseDicts.Parse1(wordi, "https://diclist.ru/slovar/ushakova"))
     print("Cловарь Ефремовой:")
     print(ParseDicts.Parse1(wordi, "https://diclist.ru/slovar/efremovoy"))
-    print("Синонимы:")
-    print(ParseDicts.Parse2(wordi, "https://sinonim.org/s"))
-    print("Антонимы:")
-    print(ParseDicts.Parse2(wordi, "https://sinonim.org/a"))
     print("Этимология:")
     print(ParseDicts.Etimology(wordi))
 

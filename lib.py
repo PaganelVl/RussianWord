@@ -6,8 +6,9 @@ from transliterate import translit
 class ParseDicts:
     def Parse1(word, url):
         # Замена ё на е
-        if word[0] == "ё":
-            word = word.replace("ё", "е")
+        for i in word:
+            if i == "ё":
+                word = word.replace(i, "е")
         # Траслитерация слова и обозначения его первой буквы на латинице
         match word[0]:
             case "е":
@@ -85,38 +86,3 @@ class ParseDicts:
             return "Информация не найдена"
         else:
             return res
-
-    def Parse2(word, url):
-        # Замена ё на е
-        if word[0] == "ё":
-            word = word.replace("ё", "е")
-
-        url = f'{url}/{word}'
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'lxml')
-        dic = soup.find_all('div', class_="outtable")
-        res = ""
-
-        for gloses in dic:
-            res += gloses.table.text
-
-        if res == "":
-            return "Информация не найдена"
-        else:
-            return res
-
-    def Etimology(word):
-        for i in word:
-            if i == "ё":
-                word = word.replace(i, "е")
-            if i == "й":
-                word = word.replace(i, "и")
-
-        url = f'https://gufo.me/dict/vasmer/{word}'
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'lxml')
-        dic = soup.find_all(id="dictionary-acticle")
-        res = ""
-
-        for gloses in dic:
-            return gloses.p.text
