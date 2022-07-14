@@ -3,8 +3,15 @@ from bs4 import BeautifulSoup
 from transliterate import translit
 
 
-class ParseDicts:
-    def Parse1(word, url):
+class Parse:
+    def wordManage(FirstLetter):
+        FirstLetter = f"{FirstLetter}"
+        word = translit(word, 'ru', reversed=True)
+        for i in word:
+            if i == "'":
+                word = word.replace(i, "")
+
+    def parse(word, url):
         # Замена ё на е
         for i in word:
             if i == "ё":
@@ -12,41 +19,17 @@ class ParseDicts:
         # Траслитерация слова и обозначения его первой буквы на латинице
         match word[0]:
             case "е":
-                FirstLetter = "ye"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('ye')
             case "ж":
-                FirstLetter = "zh"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('zh')
             case "й":
-                FirstLetter = "iy"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('iy')
             case "ч":
-                FirstLetter = "ch"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('ch')
             case "ш":
-                FirstLetter = "sh"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('sh')
             case "щ":
-                FirstLetter = "sch"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('sch')
             case "ъ":
                 word = "tverdyi-znak"
                 FirstLetter = "tznak"
@@ -56,28 +39,15 @@ class ParseDicts:
                 word = "myagkii-znak"
                 FirstLetter = "mznak"
             case "ю":
-                FirstLetter = "yu"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('yu')
             case "я":
-                FirstLetter = "ya"
-                word = translit(word, 'ru', reversed=True)
-                for i in word:
-                    if i == "'":
-                        word = word.replace(i, "")
+                Parse.wordManage('ya')
             case _:
                 word = translit(word, 'ru', reversed=True)
                 FirstLetter = str(word[0])
                 for i in word:
                     if i == "'":
                         word = word.replace(i, "")
-        url = f'{url}/{FirstLetter}/{word}.html'
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'lxml')
-        dic = soup.find_all('div', class_="found_word")
-        res = ""
 
         for gloses in dic:
             res += gloses.p.text
