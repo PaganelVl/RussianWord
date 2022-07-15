@@ -2,15 +2,16 @@ from lib import Parse
 
 
 def main():
-    wordi = input("Введите слово информацию о котором вы хотите получить (с маленькой буквы): ")
+    word = input("Введите слово информацию о котором вы хотите получить (с маленькой буквы): ")
+    ParseDict = Parse(word)    
     print("Cловарь Даля:")
-    print(Parse.parse(wordi, "https://diclist.ru/slovar/dalya"))
+    print(ParseDict.parse("https://diclist.ru/slovar/dalya"))
     print("Cловарь Ожегова:")
-    print(Parse.parse(wordi, "https://diclist.ru/slovar/ozhegova"))
+    print(ParseDict.parse("https://diclist.ru/slovar/ozhegova"))
     print("Cловарь Ушакова:")
-    print(Parse.parse(wordi, "https://diclist.ru/slovar/ushakova"))
+    print(ParseDict.parse("https://diclist.ru/slovar/ushakova"))
     print("Cловарь Ефремовой:")
-    print(Parse.parse(wordi, "https://diclist.ru/slovar/efremovoy"))
+    print(ParseDict.parse("https://diclist.ru/slovar/efremovoy"))
 
 
 if __name__ == '__main__':

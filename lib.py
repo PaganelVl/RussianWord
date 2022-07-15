@@ -4,14 +4,18 @@ from transliterate import translit
 
 
 class Parse:
+    def __init__(self, word):
+        self.word = word
+
     def wordManage(FirstLetter):
+        """Траслитерация слова и обозначения его первой буквы на латинице"""
         FirstLetter = f"{FirstLetter}"
         word = translit(word, 'ru', reversed=True)
         for i in word:
             if i == "'":
                 word = word.replace(i, "")
 
-    def parse(word, url):
+    def parse(url):
         # Замена ё на е
         for i in word:
             if i == "ё":
@@ -48,6 +52,11 @@ class Parse:
                 for i in word:
                     if i == "'":
                         word = word.replace(i, "")
+        url = f'{url}/{FirstLetter}/{word}.html'
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'lxml')
+        dic = soup.find_all('div', class_="found_word")
+        res = ""
 
         for gloses in dic:
             res += gloses.p.text
