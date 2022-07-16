@@ -12,6 +12,8 @@ def main():
     print(parse_dict.parse("https://diclist.ru/slovar/ushakova"))
     print("Cловарь Ефремовой:")
     print(parse_dict.parse("https://diclist.ru/slovar/efremovoy"))
+    print("ЭСБЕ:")
+    print(parse_dict.parse("https://diclist.ru/slovar/brokgauza-efrona"))
 
 
 if __name__ == '__main__':

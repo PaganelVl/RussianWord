@@ -1,4 +1,4 @@
-Парсинг русских толковых словарей.
+Парсинг русских толковых словарей и ЭСБЕ.
 
 <code>main.py</code> — консольное приложение.
 
@@ -10,6 +10,7 @@
 <li>Словарь Ожегова: <a href="https://diclist.ru/slovar/ozhegova.html">https://diclist.ru/slovar/ozhegova.html</a></li>
 <li>Словарь Ушакова: <a href="https://diclist.ru/slovar/ushakova.html">https://diclist.ru/slovar/ushakova.html</a></li>
 <li>Словарь Ефремовой: <a href="https://diclist.ru/slovar/efremovoy.html">https://diclist.ru/slovar/efremovoy.html</a></li>
+<li>ЭСБЕ: <a href="https://diclist.ru/slovar/brokgauza-efrona.html">https://diclist.ru/slovar/brokgauza-efrona.html</a></li>
 </ol>
 
 <h1>Требования</h1>
